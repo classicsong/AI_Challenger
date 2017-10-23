@@ -86,6 +86,7 @@ Online deploy:
 ```
 UFile data: http://ai-challenger-caption.cn-bj.ufileos.com//tfrecord-data/
 ```
+
 ```
 Example deploy cmd: /data/train.py --input_file_pattern=/train-?????-of-00280 --inception_checkpoint_file=/inception_v3.ckpt --train_inception=false --number_of_steps=10000
 ```
