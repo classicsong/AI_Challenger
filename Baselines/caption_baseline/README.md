@@ -64,3 +64,25 @@ IEEE transactions on pattern analysis and machine intelligence (2016).
 
 Full text available at: http://arxiv.org/abs/1609.06647    
 Code availabel at: https://github.com/tensorflow/models/tree/master/im2txt
+
+# How to pack Docker for UAI Train platform
+
+Install uai-sdk
+
+Goto AI_Challenger/Baselines/caption_baseline/im2txt/
+
+Put inception_v3 checkpoint to AI_Challenger/Baselines/caption_baseline/im2txt/im2txt/
+
+Get tf_tool.py from uai-sdk/uaitrain_tool/tf/
+
+Put train data into /data/ai_challenge/caption/data_output/   (If you want to do the local test)
+
+```
+sudo python tf_tool.py pack --public_key=<YOU_UCLOUD_PUB_KEY> --private_key=<YOUR_UCLOUD_PRIV_KEY> --code_path=im2txt/ --mainfile_path=train.py --uhub_username=<YOUR_UCLOUD_ACCOUNT> --uhub_password=<YOUR_ACCOUNT_PASS> --uhub_registry=<YOUR_UHUB_REGISTRY> --uhub_imagename=ai-im2txt --ai_arch_v=tensorflow-1.1.0 --test_data_path=/data/ai_challenge/caption/data_output/ --test_output_path=/data/tf-out/ --train_params="--input_file_pattern=/train-?????-of-00280 --inception_checkpoint_file=/inception_v3.ckpt --train_inception=false --number_of_steps=10000" --internal_uhub=True
+```
+
+Online deploy:
+
+```
+UFile data: http://ai-challenger-caption.cn-bj.ufileos.com//tfrecord-data/
+```
