@@ -73,7 +73,7 @@ Goto AI_Challenger/Baselines/caption_baseline/im2txt/
 
 Put inception_v3 checkpoint to AI_Challenger/Baselines/caption_baseline/im2txt/im2txt/
 
-Get tf_tool.py from uai-sdk/uaitrain_tool/tf/
+Get tf_tool.py from uai-sdk/uaitrain_tool/tf/ and copy into AI_Challenger/Baselines/caption_baseline/im2txt/
 
 Put train data into /data/ai_challenge/caption/data_output/   (If you want to do the local test)
 
