@@ -19,6 +19,7 @@ import numpy as np
 from deeplab_resnet import DeepLabResNetModel, ImageReader, decode_labels, inv_preprocess, prepare_label
 
 from uaitrain.arch.tensorflow import uflag
+import zipfile
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -128,6 +129,10 @@ def main():
     """Create the model and start the training."""
     args = get_arguments()
     args.snapshot_dir = args.log_dir
+
+    zip_ref = zipfile.ZipFile(args.data_dir+'/human.zip', 'r')
+    zip_ref.extractall(args.data_dir)
+    zip_ref.close()
     
     h, w = map(int, args.input_size.split(','))
     input_size = (h, w)
